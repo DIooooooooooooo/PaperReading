@@ -26,7 +26,7 @@ $${p_\theta(x) = \int{p_{\theta}(x|z)}p_{\theta}(z)dz}$$
 我们希望能构建参数模型 ${p_{\theta}(z)}$ 与 ${p_{\theta}(x|z)}$ 以拟合两个分布。其中的隐变量的概率分布 ${p_{\theta}(z)}$ 无法直接获得，我们引入一个模型 ${\phi}$，它利用数据集由条件概率得到隐变量的近似分布 ${q_{\phi}(z|x){\cong}p_{\theta}(z|x)=p_\theta(z)}$，我们通常称其为 encoder；而后续由隐变量生成数据的过程 ${p_{\theta}(x|z)}$ 则由模型 ${\theta}$ 完成，称为 decoder.
 
 <p align="center">
-  <img src="1_VAE/latent.png" /> 
+  <img src="assets/latent.png" /> 
 </p>
 
 
@@ -115,7 +115,7 @@ $${
 但该优化方法的问题为 $"very\ high\ variance"$，即如下图左图所示，该算法的收敛性有一定问题，因此 VAE 模型实际采用的优化算法为另一种方法，也即即将介绍的 SGVB.
 
 <p align="center">
-  <img src="1_VAE/variance.png" /> 
+  <img src="assets/variance.png" /> 
 </p>
 
 ## 随机梯度变分贝叶斯法
@@ -217,7 +217,7 @@ D_{KL}(q_\phi(z|x)||p_\theta(z))
   4. 根据均值与方差计算 KL 散度；根据数据点与重构结果计算重构误差 $MSE(x, x_r)$
   5. 得到损失函数，优化迭代
 <p align="center">
-  <img src="1_VAE/model.png" /> 
+  <img src="assets/model.png" /> 
 </p>
 
 # 代码
